@@ -30,8 +30,8 @@ function exportListPDF(title, rows, filename) {
   const doc = new jsPDF({ unit: "mm", format: "a4" });
   const pageW = 210, pageH = 297, margin = 12;
   doc.setFillColor(8, 12, 18); doc.rect(0, 0, pageW, 22, "F");
-  doc.setFillColor(245, 184, 0); doc.rect(0, 22, pageW, 1.2, "F");
-  doc.setTextColor(245, 184, 0); doc.setFont("helvetica", "bold"); doc.setFontSize(16);
+  doc.setFillColor(213, 175, 42); doc.rect(0, 22, pageW, 1.2, "F");
+  doc.setTextColor(213, 175, 42); doc.setFont("helvetica", "bold"); doc.setFontSize(16);
   doc.text("FISALRENT", margin, 12);
   doc.setTextColor(255, 255, 255); doc.setFont("helvetica", "normal"); doc.setFontSize(10);
   doc.text(title, margin, 18);
@@ -76,9 +76,9 @@ function generateInspectionPDF(insp) {
   // Header band
   doc.setFillColor(8, 12, 18);
   doc.rect(0, 0, pageW, 26, "F");
-  doc.setFillColor(245, 184, 0);
+  doc.setFillColor(213, 175, 42);
   doc.rect(0, 26, pageW, 1.5, "F");
-  doc.setTextColor(245, 184, 0);
+  doc.setTextColor(213, 175, 42);
   doc.setFont("helvetica", "bold");
   doc.setFontSize(18);
   doc.text("FISALRENT", margin, 13);
@@ -119,7 +119,7 @@ function generateInspectionPDF(insp) {
   doc.setFontSize(11);
   doc.text("Datos de la inspeccion", margin, y);
   y += 5;
-  doc.setDrawColor(245, 184, 0);
+  doc.setDrawColor(213, 175, 42);
   doc.line(margin, y, pageW - margin, y);
   y += 5;
   doc.setFont("helvetica", "normal");
@@ -145,7 +145,7 @@ function generateInspectionPDF(insp) {
   doc.setTextColor(30, 30, 30);
   doc.text("Checklist tecnico", margin, y);
   y += 5;
-  doc.setDrawColor(245, 184, 0);
+  doc.setDrawColor(213, 175, 42);
   doc.line(margin, y, pageW - margin, y);
   y += 5;
   doc.setFontSize(9);
@@ -179,7 +179,7 @@ function generateInspectionPDF(insp) {
     doc.setTextColor(30, 30, 30);
     doc.text(`Desperfectos registrados (${insp.damages.length})`, margin, y);
     y += 5;
-    doc.setDrawColor(245, 184, 0);
+    doc.setDrawColor(213, 175, 42);
     doc.line(margin, y, pageW - margin, y);
     y += 5;
     doc.setFontSize(9);
@@ -214,7 +214,7 @@ function generateInspectionPDF(insp) {
     doc.setTextColor(30, 30, 30);
     doc.text("Notas generales", margin, y);
     y += 5;
-    doc.setDrawColor(245, 184, 0);
+    doc.setDrawColor(213, 175, 42);
     doc.line(margin, y, pageW - margin, y);
     y += 5;
     doc.setFont("helvetica", "normal");
@@ -235,7 +235,7 @@ function generateInspectionPDF(insp) {
     doc.setTextColor(30, 30, 30);
     doc.text(`Fotografias (${inspPhotos.length})`, margin, y);
     y += 4;
-    doc.setDrawColor(245, 184, 0);
+    doc.setDrawColor(213, 175, 42);
     doc.line(margin, y, pageW - margin, y);
     y += 6;
     const colW = (pageW - margin * 2 - 6) / 2;
