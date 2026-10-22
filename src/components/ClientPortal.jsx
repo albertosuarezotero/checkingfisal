@@ -37,22 +37,22 @@ export function todayISO() {
   return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
 }
 
-const page = { minHeight: "100vh", background: "#080c12", color: "#e2e8f0", fontFamily: "'DM Sans', system-ui, sans-serif" };
-const card = { background: "#0d1420", border: "1px solid #1e2a3d", borderRadius: 12, padding: 18 };
-const input = { width: "100%", background: "#151b27", border: "1px solid #2a3a52", borderRadius: 8, padding: "11px 12px", color: "#e2e8f0", fontFamily: "inherit", fontSize: 14, outline: "none", boxSizing: "border-box" };
+const page = { minHeight: "100vh", background: "#f1f3f7", color: "#1e293b", fontFamily: "'DM Sans', system-ui, sans-serif" };
+const card = { background: "#ffffff", border: "1px solid #e3e8ef", borderRadius: 12, padding: 18 };
+const input = { width: "100%", background: "#ffffff", border: "1px solid #cdd6e1", borderRadius: 8, padding: "11px 12px", color: "#1e293b", fontFamily: "inherit", fontSize: 14, outline: "none", boxSizing: "border-box" };
 const label = { fontSize: 10, color: "#64748b", letterSpacing: 1.2, textTransform: "uppercase", fontWeight: 700, marginBottom: 6, display: "block" };
-const primaryBtn = { width: "100%", background: "#f5b800", border: "none", borderRadius: 10, padding: "14px", color: "#080c12", fontFamily: "inherit", fontSize: 13, fontWeight: 800, letterSpacing: 1, textTransform: "uppercase", cursor: "pointer" };
+const primaryBtn = { width: "100%", background: "#f5b800", border: "none", borderRadius: 10, padding: "14px", color: "#ffffff", fontFamily: "inherit", fontSize: 13, fontWeight: 800, letterSpacing: 1, textTransform: "uppercase", cursor: "pointer" };
 
 function PortalHeader({ subtitle, onExit }) {
   return (
-    <div style={{ background: "#0a0e17", borderBottom: "1px solid #1e2a3d", padding: "14px 18px" }}>
+    <div style={{ background: "#ffffff", borderBottom: "1px solid #e3e8ef", padding: "14px 18px" }}>
       <div style={{ maxWidth: 720, margin: "0 auto", display: "flex", justifyContent: "space-between", alignItems: "center", gap: 12 }}>
         <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
           <img src={fisalrentLogo.url} alt="FISALRENT" style={{ height: 34, width: "auto", background: "#fff", padding: "4px 8px", borderRadius: 6 }} />
           <div style={{ fontSize: 9, color: "#475569", letterSpacing: 2, textTransform: "uppercase" }}>{subtitle}</div>
         </div>
         {onExit && (
-          <button onClick={onExit} style={{ background: "none", border: "1px solid #1e2a3d", borderRadius: 6, padding: "7px 12px", color: "#64748b", fontFamily: "inherit", fontSize: 11, cursor: "pointer" }}>
+          <button onClick={onExit} style={{ background: "none", border: "1px solid #e3e8ef", borderRadius: 6, padding: "7px 12px", color: "#64748b", fontFamily: "inherit", fontSize: 11, cursor: "pointer" }}>
             Salir
           </button>
         )}
@@ -96,7 +96,7 @@ export function ClientLogin() {
     <div style={page}>
       <PortalHeader subtitle="Portal de cliente" />
       <div style={{ maxWidth: 420, margin: "0 auto", padding: "48px 20px" }}>
-        <div style={{ fontFamily: "'Syne', sans-serif", fontSize: 26, fontWeight: 800, color: "#fff", marginBottom: 8 }}>
+        <div style={{ fontFamily: "'Syne', sans-serif", fontSize: 26, fontWeight: 800, color: "#0f172a", marginBottom: 8 }}>
           Parte <span style={{ color: "#f5b800" }}>diario</span>
         </div>
         <p style={{ color: "#475569", fontSize: 13, marginBottom: 28 }}>
@@ -159,7 +159,7 @@ export function ClientMachines() {
     <div style={page}>
       <PortalHeader subtitle="Portal de cliente" onExit={exit} />
       <div style={{ maxWidth: 720, margin: "0 auto", padding: "28px 20px" }}>
-        <div style={{ fontFamily: "'Syne', sans-serif", fontSize: 22, fontWeight: 800, color: "#fff" }}>
+        <div style={{ fontFamily: "'Syne', sans-serif", fontSize: 22, fontWeight: 800, color: "#0f172a" }}>
           Hola, {session?.name || "cliente"}
         </div>
         <p style={{ color: "#475569", fontSize: 13, margin: "4px 0 24px" }}>
@@ -185,7 +185,7 @@ export function ClientMachines() {
               >
                 <div style={{ fontSize: 30 }}>{m.image}</div>
                 <div style={{ flex: 1 }}>
-                  <div style={{ fontFamily: "'Syne', sans-serif", fontSize: 14, fontWeight: 700, color: "#e2e8f0" }}>{m.name}</div>
+                  <div style={{ fontFamily: "'Syne', sans-serif", fontSize: 14, fontWeight: 700, color: "#1e293b" }}>{m.name}</div>
                   <div style={{ fontSize: 11, color: "#475569", marginTop: 2 }}>{m.serial} {m.fleet?.location ? `· 📍 ${m.fleet.location}` : ""}</div>
                 </div>
                 <span style={{ fontSize: 10, fontWeight: 800, padding: "5px 10px", borderRadius: 14, letterSpacing: 0.6, background: done ? "#10b98120" : "#f5b80020", color: done ? "#10b981" : "#f5b800", border: `1px solid ${done ? "#10b98140" : "#f5b80040"}` }}>
@@ -253,9 +253,9 @@ function SignaturePad({ onChange }) {
         height={180}
         onMouseDown={start} onMouseMove={move} onMouseUp={end} onMouseLeave={end}
         onTouchStart={start} onTouchMove={move} onTouchEnd={end}
-        style={{ width: "100%", height: 150, background: "#151b27", border: "1px dashed #2a3a52", borderRadius: 8, touchAction: "none" }}
+        style={{ width: "100%", height: 150, background: "#ffffff", border: "1px dashed #cdd6e1", borderRadius: 8, touchAction: "none" }}
       />
-      <button onClick={clear} style={{ background: "none", border: "1px solid #2a3a52", borderRadius: 6, padding: "6px 12px", color: "#64748b", fontFamily: "inherit", fontSize: 11, cursor: "pointer", marginTop: 8 }}>
+      <button onClick={clear} style={{ background: "none", border: "1px solid #cdd6e1", borderRadius: 6, padding: "6px 12px", color: "#64748b", fontFamily: "inherit", fontSize: 11, cursor: "pointer", marginTop: 8 }}>
         Borrar firma
       </button>
     </div>
@@ -360,7 +360,7 @@ export function ClientDailyCheck({ machineId }) {
         <div style={{ ...card, display: "flex", alignItems: "center", gap: 14 }}>
           <div style={{ fontSize: 32 }}>{machine?.image || "🚜"}</div>
           <div>
-            <div style={{ fontFamily: "'Syne', sans-serif", fontSize: 16, fontWeight: 800, color: "#fff" }}>{machine?.name || "Máquina"}</div>
+            <div style={{ fontFamily: "'Syne', sans-serif", fontSize: 16, fontWeight: 800, color: "#0f172a" }}>{machine?.name || "Máquina"}</div>
             <div style={{ fontSize: 11, color: "#475569" }}>{machine?.serial} · {new Date().toLocaleDateString("es-ES")}</div>
           </div>
         </div>
@@ -369,12 +369,12 @@ export function ClientDailyCheck({ machineId }) {
           <div style={{ fontSize: 12, fontWeight: 800, color: "#f5b800", marginBottom: 14, letterSpacing: 1, textTransform: "uppercase" }}>Checklist rápido</div>
           <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
             {PORTAL_CHECKLIST.map((c) => (
-              <div key={c.id} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 10, background: "#0a0f18", border: "1px solid #1e2a3d", borderRadius: 8, padding: "10px 12px" }}>
-                <div style={{ fontSize: 13, color: "#e2e8f0" }}>{c.icon} {c.label}</div>
+              <div key={c.id} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 10, background: "#f8fafc", border: "1px solid #e3e8ef", borderRadius: 8, padding: "10px 12px" }}>
+                <div style={{ fontSize: 13, color: "#1e293b" }}>{c.icon} {c.label}</div>
                 <div style={{ display: "flex", gap: 6 }}>
                   {[["ok", "OK", "#10b981"], ["atencion", "Atención", "#f59e0b"], ["fallo", "Fallo", "#ef4444"]].map(([v, l, col]) => (
                     <button key={v} onClick={() => setChecks((p) => ({ ...p, [c.id]: v }))}
-                      style={{ border: `1px solid ${checks[c.id] === v ? col : "#2a3a52"}`, background: checks[c.id] === v ? `${col}20` : "transparent", color: checks[c.id] === v ? col : "#475569", borderRadius: 6, padding: "5px 9px", fontSize: 10, fontWeight: 800, cursor: "pointer", fontFamily: "inherit" }}>
+                      style={{ border: `1px solid ${checks[c.id] === v ? col : "#cdd6e1"}`, background: checks[c.id] === v ? `${col}20` : "transparent", color: checks[c.id] === v ? col : "#475569", borderRadius: 6, padding: "5px 9px", fontSize: 10, fontWeight: 800, cursor: "pointer", fontFamily: "inherit" }}>
                       {l}
                     </button>
                   ))}
@@ -396,7 +396,7 @@ export function ClientDailyCheck({ machineId }) {
         </div>
 
         <div style={card}>
-          <label style={{ display: "flex", gap: 10, alignItems: "center", color: "#e2e8f0", fontSize: 13, cursor: "pointer" }}>
+          <label style={{ display: "flex", gap: 10, alignItems: "center", color: "#1e293b", fontSize: 13, cursor: "pointer" }}>
             <input type="checkbox" checked={incident} onChange={(e) => setIncident(e.target.checked)} style={{ accentColor: "#ef4444", width: 16, height: 16 }} />
             ⚠️ Hay una incidencia que comunicar
           </label>
@@ -416,9 +416,9 @@ export function ClientDailyCheck({ machineId }) {
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(90px, 1fr))", gap: 8, marginTop: 12 }}>
               {photos.map((p, i) => (
                 <div key={i} style={{ position: "relative" }}>
-                  <img src={p} alt={`Foto ${i + 1}`} style={{ width: "100%", height: 70, objectFit: "cover", borderRadius: 6, border: "1px solid #1e2a3d" }} />
+                  <img src={p} alt={`Foto ${i + 1}`} style={{ width: "100%", height: 70, objectFit: "cover", borderRadius: 6, border: "1px solid #e3e8ef" }} />
                   <button onClick={() => setPhotos((prev) => prev.filter((_, idx) => idx !== i))}
-                    style={{ position: "absolute", top: 3, right: 3, background: "#080c12cc", border: "none", color: "#ef4444", borderRadius: 4, cursor: "pointer", fontSize: 12, padding: "0 5px" }}>×</button>
+                    style={{ position: "absolute", top: 3, right: 3, background: "#ffffffcc", border: "none", color: "#ef4444", borderRadius: 4, cursor: "pointer", fontSize: 12, padding: "0 5px" }}>×</button>
                 </div>
               ))}
             </div>
@@ -439,8 +439,8 @@ export function ClientDailyCheck({ machineId }) {
             <div style={{ fontSize: 12, fontWeight: 800, color: "#94a3b8", marginBottom: 12, letterSpacing: 1, textTransform: "uppercase" }}>Mis partes anteriores</div>
             <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
               {history.map((h) => (
-                <div key={h.date} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", background: "#0a0f18", border: "1px solid #1e2a3d", borderRadius: 8, padding: "9px 12px", fontSize: 12 }}>
-                  <span style={{ color: "#e2e8f0" }}>{h.date} · {h.operator}</span>
+                <div key={h.date} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", background: "#f8fafc", border: "1px solid #e3e8ef", borderRadius: 8, padding: "9px 12px", fontSize: 12 }}>
+                  <span style={{ color: "#1e293b" }}>{h.date} · {h.operator}</span>
                   <span style={{ color: h.incident || h.hasFailures ? "#ef4444" : "#10b981", fontWeight: 700, fontSize: 11 }}>
                     {h.incident || h.hasFailures ? "⚠ Con incidencia" : "✓ Correcto"}
                   </span>
