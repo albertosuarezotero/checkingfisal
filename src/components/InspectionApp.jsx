@@ -467,7 +467,7 @@ function DamageMapper({ damages, onAdd, onRemove, machine }) {
                   border: `2px solid ${isActive ? "#f5b800" : hasDmg ? "#ef4444" : "#cdd6e1"}`,
                   background: isActive ? "#f5b80020" : hasDmg ? "#ef444420" : "#ffffff",
                   cursor: "pointer", transition: "all 0.2s", display: "flex", alignItems: "center", justifyContent: "center",
-                  fontSize: 11, color: isActive ? "#f5b800" : hasDmg ? "#ef4444" : "#475569", fontWeight: 800,
+                  fontSize: 11, color: isActive ? "#b45309" : hasDmg ? "#ef4444" : "#475569", fontWeight: 800,
                   zIndex: 2, fontFamily: "inherit",
                   boxShadow: isActive ? "0 0 12px #f5b80040" : hasDmg ? "0 0 8px #ef444440" : "none"
                 }}>
@@ -930,7 +930,7 @@ export default function InspectionApp() {
                             }}>
                               <span style={{ fontSize: 24 }}>{m.image}</span>
                               <div style={{ textAlign: "left" }}>
-                                <div style={{ fontSize: 12, fontWeight: 500, color: selectedMachine?.id === m.id ? "#f5b800" : "#1e293b" }}>{m.name}</div>
+                                <div style={{ fontSize: 12, fontWeight: 500, color: selectedMachine?.id === m.id ? "#b45309" : "#1e293b" }}>{m.name}</div>
                                 <div style={{ fontSize: 10, color: "#475569" }}>{m.serial}</div>
                               </div>
                             </button>
@@ -1450,7 +1450,7 @@ export default function InspectionApp() {
                           <div style={{ fontFamily: "'Syne', sans-serif", fontSize: 14, fontWeight: 700, color: "#1e293b" }}>{m.name}</div>
                           <div style={{ fontSize: 11, color: "#475569", marginTop: 2 }}>{m.serial} · {m.category}</div>
                           <div style={{ display: "flex", gap: 8, marginTop: 6, flexWrap: "wrap" }}>
-                            <span style={{ fontSize: 10, fontWeight: 700, padding: "3px 8px", borderRadius: 12, background: isRented ? "#f5b80020" : "#10b98120", color: isRented ? "#f5b800" : "#10b981", border: `1px solid ${isRented ? "#f5b80040" : "#10b98140"}`, letterSpacing: 0.8 }}>
+                            <span style={{ fontSize: 10, fontWeight: 700, padding: "3px 8px", borderRadius: 12, background: isRented ? "#f5b80020" : "#10b98120", color: isRented ? "#b45309" : "#10b981", border: `1px solid ${isRented ? "#f5b80040" : "#10b98140"}`, letterSpacing: 0.8 }}>
                               {isRented ? "ALQUILADA" : "DISPONIBLE"}
                             </span>
                             {isRented && <span style={{ fontSize: 11, color: "#94a3b8" }}>👤 {f.client}</span>}
