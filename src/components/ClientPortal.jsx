@@ -41,7 +41,7 @@ const page = { minHeight: "100vh", background: "#f1f3f7", color: "#1e293b", font
 const card = { background: "#ffffff", border: "1px solid #e3e8ef", borderRadius: 12, padding: 18 };
 const input = { width: "100%", background: "#ffffff", border: "1px solid #cdd6e1", borderRadius: 8, padding: "11px 12px", color: "#1e293b", fontFamily: "inherit", fontSize: 14, outline: "none", boxSizing: "border-box" };
 const label = { fontSize: 10, color: "#64748b", letterSpacing: 1.2, textTransform: "uppercase", fontWeight: 700, marginBottom: 6, display: "block" };
-const primaryBtn = { width: "100%", background: "#f5b800", border: "none", borderRadius: 10, padding: "14px", color: "#ffffff", fontFamily: "inherit", fontSize: 13, fontWeight: 800, letterSpacing: 1, textTransform: "uppercase", cursor: "pointer" };
+const primaryBtn = { width: "100%", background: "#f5b800", border: "none", borderRadius: 10, padding: "14px", color: "#0f172a", fontFamily: "inherit", fontSize: 13, fontWeight: 800, letterSpacing: 1, textTransform: "uppercase", cursor: "pointer" };
 
 function PortalHeader({ subtitle, onExit }) {
   return (
@@ -97,7 +97,7 @@ export function ClientLogin() {
       <PortalHeader subtitle="Portal de cliente" />
       <div style={{ maxWidth: 420, margin: "0 auto", padding: "48px 20px" }}>
         <div style={{ fontFamily: "'Syne', sans-serif", fontSize: 26, fontWeight: 800, color: "#0f172a", marginBottom: 8 }}>
-          Parte <span style={{ color: "#f5b800" }}>diario</span>
+          Parte <span style={{ color: "#b45309" }}>diario</span>
         </div>
         <p style={{ color: "#475569", fontSize: 13, marginBottom: 28 }}>
           Introduce el código que te ha facilitado FISALRENT para ver tus máquinas alquiladas.
@@ -188,7 +188,7 @@ export function ClientMachines() {
                   <div style={{ fontFamily: "'Syne', sans-serif", fontSize: 14, fontWeight: 700, color: "#1e293b" }}>{m.name}</div>
                   <div style={{ fontSize: 11, color: "#475569", marginTop: 2 }}>{m.serial} {m.fleet?.location ? `· 📍 ${m.fleet.location}` : ""}</div>
                 </div>
-                <span style={{ fontSize: 10, fontWeight: 800, padding: "5px 10px", borderRadius: 14, letterSpacing: 0.6, background: done ? "#10b98120" : "#f5b80020", color: done ? "#10b981" : "#f5b800", border: `1px solid ${done ? "#10b98140" : "#f5b80040"}` }}>
+                <span style={{ fontSize: 10, fontWeight: 800, padding: "5px 10px", borderRadius: 14, letterSpacing: 0.6, background: done ? "#10b98120" : "#f5b80020", color: done ? "#10b981" : "#b45309", border: `1px solid ${done ? "#10b98140" : "#f5b80040"}` }}>
                   {done ? "PARTE ENVIADO ✓" : "PENDIENTE HOY"}
                 </span>
               </button>
@@ -366,7 +366,7 @@ export function ClientDailyCheck({ machineId }) {
         </div>
 
         <div style={card}>
-          <div style={{ fontSize: 12, fontWeight: 800, color: "#f5b800", marginBottom: 14, letterSpacing: 1, textTransform: "uppercase" }}>Checklist rápido</div>
+          <div style={{ fontSize: 12, fontWeight: 800, color: "#b45309", marginBottom: 14, letterSpacing: 1, textTransform: "uppercase" }}>Checklist rápido</div>
           <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
             {PORTAL_CHECKLIST.map((c) => (
               <div key={c.id} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 10, background: "#f8fafc", border: "1px solid #e3e8ef", borderRadius: 8, padding: "10px 12px" }}>
@@ -407,8 +407,8 @@ export function ClientDailyCheck({ machineId }) {
         </div>
 
         <div style={card}>
-          <div style={{ fontSize: 12, fontWeight: 800, color: "#f5b800", marginBottom: 12, letterSpacing: 1, textTransform: "uppercase" }}>Fotos</div>
-          <label style={{ display: "inline-block", background: "#f5b80020", border: "1px dashed #f5b80060", borderRadius: 8, padding: "10px 16px", color: "#f5b800", fontSize: 11, fontWeight: 800, cursor: "pointer", textTransform: "uppercase", letterSpacing: 0.8 }}>
+          <div style={{ fontSize: 12, fontWeight: 800, color: "#b45309", marginBottom: 12, letterSpacing: 1, textTransform: "uppercase" }}>Fotos</div>
+          <label style={{ display: "inline-block", background: "#f5b80020", border: "1px dashed #f5b80060", borderRadius: 8, padding: "10px 16px", color: "#b45309", fontSize: 11, fontWeight: 800, cursor: "pointer", textTransform: "uppercase", letterSpacing: 0.8 }}>
             📷 Añadir fotos
             <input type="file" accept="image/*" multiple capture="environment" onChange={(e) => addPhotos(e.target.files)} style={{ display: "none" }} />
           </label>
@@ -426,7 +426,7 @@ export function ClientDailyCheck({ machineId }) {
         </div>
 
         <div style={card}>
-          <div style={{ fontSize: 12, fontWeight: 800, color: "#f5b800", marginBottom: 12, letterSpacing: 1, textTransform: "uppercase" }}>Firma del operador</div>
+          <div style={{ fontSize: 12, fontWeight: 800, color: "#b45309", marginBottom: 12, letterSpacing: 1, textTransform: "uppercase" }}>Firma del operador</div>
           <SignaturePad onChange={setSignature} />
         </div>
 

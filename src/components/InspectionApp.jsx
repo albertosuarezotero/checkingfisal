@@ -479,7 +479,7 @@ function DamageMapper({ damages, onAdd, onRemove, machine }) {
           <div style={{ display: "flex", gap: 12, marginTop: 10, fontSize: 11 }}>
             <span style={{ color: "#475569" }}>⬤ Sin daño</span>
             <span style={{ color: "#ef4444" }}>⬤ Con daño</span>
-            <span style={{ color: "#f5b800" }}>⬤ Seleccionado</span>
+            <span style={{ color: "#b45309" }}>⬤ Seleccionado</span>
           </div>
         </div>
 
@@ -487,7 +487,7 @@ function DamageMapper({ damages, onAdd, onRemove, machine }) {
         <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
           {active ? (
             <div style={{ background: "#ffffff", border: "1px solid #f5b80040", borderRadius: 10, padding: 16 }}>
-              <div style={{ fontSize: 13, fontWeight: 700, color: "#f5b800", marginBottom: 12 }}>
+              <div style={{ fontSize: 13, fontWeight: 700, color: "#b45309", marginBottom: 12 }}>
                 📍 {DAMAGE_ZONES.find(z => z.id === active)?.label}
               </div>
               <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
@@ -787,7 +787,7 @@ export default function InspectionApp() {
       `}</style>
 
       {notification && (
-        <div className="notif" style={{ background: notification.type === "error" ? "#ef4444" : "#f5b800", color: notification.type === "error" ? "#ffffff" : "#ffffff" }}>
+        <div className="notif" style={{ background: notification.type === "error" ? "#ef4444" : "#f5b800", color: notification.type === "error" ? "#ffffff" : "#0f172a" }}>
           {notification.msg}
         </div>
       )}
@@ -804,7 +804,7 @@ export default function InspectionApp() {
           <div style={{ display: "flex", gap: 6, flexWrap: "wrap", justifyContent: "flex-end" }}>
             {[["home","🏠 Inicio"],["new","+ Nueva Inspección"],["machines","⚙️ Máquinas"],["fleet","🚛 Flota"],["clients","👥 Clientes"],["checks","📋 Partes diarios"],["history","📁 Historial"]].map(([v, label]) => (
               <button key={v} onClick={() => { if (v !== "new") { setView(v); resetForm(); } else { setView("new"); setStep(0); } }}
-                style={{ background: view === v ? "#f5b80015" : "none", border: `1px solid ${view === v ? "#f5b800" : "#e3e8ef"}`, borderRadius: 6, padding: "7px 14px", color: view === v ? "#f5b800" : "#64748b", fontFamily: "inherit", fontSize: 11, fontWeight: 500, letterSpacing: 0.5, transition: "all 0.2s" }}>
+                style={{ background: view === v ? "#f5b80015" : "none", border: `1px solid ${view === v ? "#f5b800" : "#e3e8ef"}`, borderRadius: 6, padding: "7px 14px", color: view === v ? "#b45309" : "#64748b", fontFamily: "inherit", fontSize: 11, fontWeight: 500, letterSpacing: 0.5, transition: "all 0.2s" }}>
                 {label}
               </button>
             ))}
@@ -819,12 +819,12 @@ export default function InspectionApp() {
           <div>
             <div style={{ textAlign: "center", padding: "40px 0 48px" }}>
               <div style={{ fontFamily: "'Syne', sans-serif", fontSize: 36, fontWeight: 800, color: "#0f172a", letterSpacing: -1, marginBottom: 12 }}>
-                Inspecciones de <span style={{ color: "#f5b800" }}>Maquinaria</span>
+                Inspecciones de <span style={{ color: "#b45309" }}>Maquinaria</span>
               </div>
               <p style={{ color: "#475569", fontSize: 14, maxWidth: 480, margin: "0 auto 32px" }}>
                 Registra el estado de cada máquina antes de la salida y a la vuelta con fotos, checklist técnico y mapa de desperfectos.
               </p>
-              <button onClick={() => setView("new")} style={{ background: "#f5b800", border: "none", borderRadius: 10, padding: "14px 36px", color: "#ffffff", fontFamily: "inherit", fontSize: 13, fontWeight: 500, letterSpacing: 1, cursor: "pointer" }}>
+              <button onClick={() => setView("new")} style={{ background: "#f5b800", border: "none", borderRadius: 10, padding: "14px 36px", color: "#0f172a", fontFamily: "inherit", fontSize: 13, fontWeight: 500, letterSpacing: 1, cursor: "pointer" }}>
                 + Nueva Inspección
               </button>
             </div>
@@ -897,10 +897,10 @@ export default function InspectionApp() {
                   <div style={{ position: "absolute", left: 0, top: 0, height: "100%", width: `${((step + 1) / STEPS.length) * 100}%`, background: "linear-gradient(90deg, #f5b80010, transparent)", transition: "width 0.4s ease" }} />
                   {STEPS.map((s, i) => (
                     <div key={i} style={{ display: "flex", alignItems: "center", flex: 1, gap: 8, position: "relative" }}>
-                      <div style={{ width: 26, height: 26, borderRadius: "50%", border: `2px solid ${i <= step ? "#f5b800" : "#cdd6e1"}`, background: i < step ? "#f5b800" : i === step ? "#f5b80020" : "transparent", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 10, color: i < step ? "#ffffff" : i === step ? "#f5b800" : "#475569", fontWeight: 700, flexShrink: 0, transition: "all 0.3s" }}>
+                      <div style={{ width: 26, height: 26, borderRadius: "50%", border: `2px solid ${i <= step ? "#f5b800" : "#cdd6e1"}`, background: i < step ? "#f5b800" : i === step ? "#f5b80020" : "transparent", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 10, color: i < step ? "#0f172a" : i === step ? "#b45309" : "#475569", fontWeight: 700, flexShrink: 0, transition: "all 0.3s" }}>
                         {i < step ? "✓" : i + 1}
                       </div>
-                      <span style={{ fontSize: 10, color: i === step ? "#f5b800" : i < step ? "#64748b" : "#cdd6e1", fontWeight: 500, letterSpacing: 0.5, whiteSpace: "nowrap" }}>{s}</span>
+                      <span style={{ fontSize: 10, color: i === step ? "#b45309" : i < step ? "#64748b" : "#cdd6e1", fontWeight: 500, letterSpacing: 0.5, whiteSpace: "nowrap" }}>{s}</span>
                       {i < STEPS.length - 1 && <div style={{ flex: 1, height: 1, background: i < step ? "#f5b80040" : "#e3e8ef", margin: "0 8px" }} />}
                     </div>
                   ))}
@@ -954,7 +954,7 @@ export default function InspectionApp() {
                           <label className="field-label">Nivel de combustible</label>
                           <div style={{ display: "flex", gap: 6 }}>
                             {FUEL_LEVELS.map(f => (
-                              <button key={f} onClick={() => setFuelLevel(f)} style={{ flex: 1, padding: "8px 4px", border: `1px solid ${fuelLevel === f ? "#f5b800" : "#e3e8ef"}`, background: fuelLevel === f ? "#f5b80015" : "#ffffff", color: fuelLevel === f ? "#f5b800" : "#475569", borderRadius: 6, fontSize: 10, fontWeight: 500, fontFamily: "inherit", cursor: "pointer", transition: "all 0.15s" }}>{f}</button>
+                              <button key={f} onClick={() => setFuelLevel(f)} style={{ flex: 1, padding: "8px 4px", border: `1px solid ${fuelLevel === f ? "#f5b800" : "#e3e8ef"}`, background: fuelLevel === f ? "#f5b80015" : "#ffffff", color: fuelLevel === f ? "#b45309" : "#475569", borderRadius: 6, fontSize: 10, fontWeight: 500, fontFamily: "inherit", cursor: "pointer", transition: "all 0.15s" }}>{f}</button>
                             ))}
                           </div>
                         </div>
@@ -1017,7 +1017,7 @@ export default function InspectionApp() {
                       </div>
                     )}
                     {photos.length > 0 && (
-                      <div style={{ marginTop: 16, padding: "10px 14px", background: "#f5b80010", border: "1px solid #f5b80030", borderRadius: 8, fontSize: 12, color: "#f5b800" }}>
+                      <div style={{ marginTop: 16, padding: "10px 14px", background: "#f5b80010", border: "1px solid #f5b80030", borderRadius: 8, fontSize: 12, color: "#b45309" }}>
                         ✓ {photos.length} foto{photos.length > 1 ? "s" : ""} registrada{photos.length > 1 ? "s" : ""}
                       </div>
                     )}
@@ -1091,11 +1091,11 @@ export default function InspectionApp() {
                     ← Atrás
                   </button>
                   {step < STEPS.length - 1 ? (
-                    <button onClick={() => { if (!canProceed()) { notify("Completa los campos obligatorios", "error"); return; } setStep(p => p + 1); }} style={{ background: "#f5b800", border: "none", borderRadius: 8, padding: "11px 28px", color: "#ffffff", fontFamily: "inherit", fontSize: 12, fontWeight: 500, letterSpacing: 1, cursor: "pointer", opacity: canProceed() ? 1 : 0.5 }}>
+                    <button onClick={() => { if (!canProceed()) { notify("Completa los campos obligatorios", "error"); return; } setStep(p => p + 1); }} style={{ background: "#f5b800", border: "none", borderRadius: 8, padding: "11px 28px", color: "#0f172a", fontFamily: "inherit", fontSize: 12, fontWeight: 500, letterSpacing: 1, cursor: "pointer", opacity: canProceed() ? 1 : 0.5 }}>
                       Siguiente →
                     </button>
                   ) : (
-                    <button onClick={handleSubmit} style={{ background: "#f5b800", border: "none", borderRadius: 8, padding: "11px 28px", color: "#ffffff", fontFamily: "inherit", fontSize: 12, fontWeight: 700, letterSpacing: 1, cursor: "pointer", textTransform: "uppercase" }}>
+                    <button onClick={handleSubmit} style={{ background: "#f5b800", border: "none", borderRadius: 8, padding: "11px 28px", color: "#0f172a", fontFamily: "inherit", fontSize: 12, fontWeight: 700, letterSpacing: 1, cursor: "pointer", textTransform: "uppercase" }}>
                       ✓ Finalizar Inspección
                     </button>
                   )}
@@ -1124,7 +1124,7 @@ export default function InspectionApp() {
             </div>
 
             <div className="insp-card" style={{ marginBottom: 24 }}>
-              <div style={{ fontSize: 13, fontWeight: 700, color: "#f5b800", marginBottom: 16 }}>{editingClientId ? "✏️ Editar cliente" : "+ Alta de cliente"}</div>
+              <div style={{ fontSize: 13, fontWeight: 700, color: "#b45309", marginBottom: 16 }}>{editingClientId ? "✏️ Editar cliente" : "+ Alta de cliente"}</div>
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
                 <div><label className="field-label">Nombre / Empresa *</label><input className="field-input" value={clientForm.name} onChange={e => setClientForm(p => ({ ...p, name: e.target.value }))} placeholder="Construcciones Ejemplo S.L." /></div>
                 <div><label className="field-label">CIF</label><input className="field-input" value={clientForm.cif} onChange={e => setClientForm(p => ({ ...p, cif: e.target.value }))} placeholder="B12345678" /></div>
@@ -1154,7 +1154,7 @@ export default function InspectionApp() {
                   setClientForm({ name: "", cif: "", contact: "", phone: "", email: "", site: "" });
                   notify(`Cliente creado · código ${code}`);
                  }}
-                style={{ marginTop: 16, background: "#f5b800", border: "none", borderRadius: 8, padding: "11px 22px", color: "#ffffff", fontFamily: "inherit", fontSize: 12, fontWeight: 800, letterSpacing: 1, textTransform: "uppercase", cursor: "pointer" }}>
+                style={{ marginTop: 16, background: "#f5b800", border: "none", borderRadius: 8, padding: "11px 22px", color: "#0f172a", fontFamily: "inherit", fontSize: 12, fontWeight: 800, letterSpacing: 1, textTransform: "uppercase", cursor: "pointer" }}>
                 {editingClientId ? "Guardar cambios" : "Crear cliente"}
               </button>
               {editingClientId && (
@@ -1183,7 +1183,7 @@ export default function InspectionApp() {
                           <div style={{ fontSize: 11, color: "#94a3b8", marginTop: 6 }}>🚜 {machinesOf.length} máquina{machinesOf.length === 1 ? "" : "s"} asignada{machinesOf.length === 1 ? "" : "s"}</div>
                         </div>
                         <div style={{ textAlign: "right" }}>
-                          <div style={{ fontSize: 18, fontWeight: 800, color: "#f5b800", letterSpacing: 1 }}>{c.access_code}</div>
+                          <div style={{ fontSize: 18, fontWeight: 800, color: "#b45309", letterSpacing: 1 }}>{c.access_code}</div>
                           <span style={{ fontSize: 10, fontWeight: 800, padding: "3px 8px", borderRadius: 12, background: c.active ? "#10b98120" : "#ef444420", color: c.active ? "#10b981" : "#ef4444", border: `1px solid ${c.active ? "#10b98140" : "#ef444440"}` }}>
                             {c.active ? "ACCESO ACTIVO" : "ACCESO DESACTIVADO"}
                           </span>
@@ -1260,9 +1260,9 @@ export default function InspectionApp() {
                   <button
                     onClick={() => setHideMissingAlert(true)}
                     title="Ocultar aviso"
-                    style={{ position: "absolute", top: 8, right: 8, background: "transparent", border: "none", color: "#f5b800", fontSize: 16, fontWeight: 800, cursor: "pointer", lineHeight: 1 }}
+                    style={{ position: "absolute", top: 8, right: 8, background: "transparent", border: "none", color: "#b45309", fontSize: 16, fontWeight: 800, cursor: "pointer", lineHeight: 1 }}
                   >✕</button>
-                  <div style={{ fontSize: 12, fontWeight: 800, color: "#f5b800", marginBottom: 6 }}>⏰ Sin parte de hoy ({rentedMissing.length})</div>
+                  <div style={{ fontSize: 12, fontWeight: 800, color: "#b45309", marginBottom: 6 }}>⏰ Sin parte de hoy ({rentedMissing.length})</div>
                   <div style={{ fontSize: 12, color: "#94a3b8" }}>{rentedMissing.map(m => m.name).join(" · ")}</div>
                 </div>
               )}
@@ -1387,7 +1387,7 @@ export default function InspectionApp() {
               return (
                 <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 12, marginBottom: 20 }}>
                   {[
-                    { label: "Alquiladas", value: stats.rented, color: "#f5b800", filter: "rented" },
+                    { label: "Alquiladas", value: stats.rented, color: "#b45309", filter: "rented" },
                     { label: "Disponibles", value: stats.available, color: "#10b981", filter: "available" },
                     { label: "Extintor <30 días", value: stats.soon, color: "#f59e0b" },
                     { label: "Extintor caducado", value: stats.expired, color: "#ef4444" },
@@ -1468,7 +1468,7 @@ export default function InspectionApp() {
                             const days = Math.round((end - today) / 86400000);
                             if (days < 0) return <div style={{ fontSize: 10, color: "#ef4444", marginTop: 6, fontWeight: 700 }}>⚠️ Alquiler vencido hace {Math.abs(days)} día{Math.abs(days)===1?"":"s"}</div>;
                             if (days === 0) return <div style={{ fontSize: 10, color: "#ef4444", marginTop: 6, fontWeight: 700 }}>⚠️ El alquiler finaliza HOY</div>;
-                            if (days <= 5) return <div style={{ fontSize: 10, color: "#f5b800", marginTop: 6, fontWeight: 700 }}>⏰ Alquiler finaliza en {days} día{days===1?"":"s"} ({f.rentEnd})</div>;
+                            if (days <= 5) return <div style={{ fontSize: 10, color: "#b45309", marginTop: 6, fontWeight: 700 }}>⏰ Alquiler finaliza en {days} día{days===1?"":"s"} ({f.rentEnd})</div>;
                             return null;
                           })()}
                         </div>
@@ -1540,7 +1540,7 @@ export default function InspectionApp() {
                                         const { data, error } = await supabase.storage.from("machine-docs").createSignedUrl(doc.path, 3600);
                                         if (error) { notify("Error al abrir documento", "error"); return; }
                                         window.open(data.signedUrl, "_blank");
-                                      }} style={{ background: "none", border: "1px solid #cdd6e1", borderRadius: 4, padding: "4px 10px", color: "#f5b800", fontSize: 10, fontWeight: 700, cursor: "pointer", textTransform: "uppercase", letterSpacing: 0.5 }}>Ver</button>
+                                      }} style={{ background: "none", border: "1px solid #cdd6e1", borderRadius: 4, padding: "4px 10px", color: "#b45309", fontSize: 10, fontWeight: 700, cursor: "pointer", textTransform: "uppercase", letterSpacing: 0.5 }}>Ver</button>
                                       <button onClick={async () => {
                                         if (!confirm("¿Eliminar este documento?")) return;
                                         await supabase.storage.from("machine-docs").remove([doc.path]);
@@ -1553,7 +1553,7 @@ export default function InspectionApp() {
                                 ))}
                               </div>
                             )}
-                            <label style={{ display: "inline-block", background: "#f5b80020", border: "1px dashed #f5b80060", borderRadius: 6, padding: "8px 14px", color: "#f5b800", fontSize: 11, fontWeight: 700, cursor: "pointer", textTransform: "uppercase", letterSpacing: 0.8 }}>
+                            <label style={{ display: "inline-block", background: "#f5b80020", border: "1px dashed #f5b80060", borderRadius: 6, padding: "8px 14px", color: "#b45309", fontSize: 11, fontWeight: 700, cursor: "pointer", textTransform: "uppercase", letterSpacing: 0.8 }}>
                               + Subir documento
                               <input type="file" style={{ display: "none" }} onChange={async (e) => {
                                 const file = e.target.files?.[0];
@@ -1612,7 +1612,7 @@ export default function InspectionApp() {
                             Liberar máquina
                           </button>
                           <button onClick={() => { setExpandedMachine(null); notify("✅ Datos guardados"); }}
-                            style={{ background: "#f5b800", border: "none", borderRadius: 6, padding: "8px 16px", color: "#ffffff", fontFamily: "inherit", fontSize: 11, fontWeight: 700, letterSpacing: 1, cursor: "pointer", textTransform: "uppercase" }}>
+                            style={{ background: "#f5b800", border: "none", borderRadius: 6, padding: "8px 16px", color: "#0f172a", fontFamily: "inherit", fontSize: 11, fontWeight: 700, letterSpacing: 1, cursor: "pointer", textTransform: "uppercase" }}>
                             Guardar
                           </button>
                         </div>
@@ -1649,7 +1649,7 @@ export default function InspectionApp() {
 
             {/* Add machine form */}
             <div className="insp-card" style={{ marginBottom: 24 }}>
-              <div style={{ fontSize: 13, fontWeight: 700, color: "#f5b800", marginBottom: 16 }}>+ Añadir nueva máquina</div>
+              <div style={{ fontSize: 13, fontWeight: 700, color: "#b45309", marginBottom: 16 }}>+ Añadir nueva máquina</div>
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14 }}>
                 <div>
                   <label className="field-label">Nombre de la máquina *</label>
@@ -1692,7 +1692,7 @@ export default function InspectionApp() {
 
                   setMachineForm({ name: "", serial: "", category: "", image: "🚜" });
                   notify("✅ Máquina añadida correctamente");
-                }} style={{ background: "#f5b800", border: "none", borderRadius: 8, padding: "10px 24px", color: "#ffffff", fontFamily: "inherit", fontSize: 12, fontWeight: 700, letterSpacing: 1, cursor: "pointer", textTransform: "uppercase" }}>
+                }} style={{ background: "#f5b800", border: "none", borderRadius: 8, padding: "10px 24px", color: "#0f172a", fontFamily: "inherit", fontSize: 12, fontWeight: 700, letterSpacing: 1, cursor: "pointer", textTransform: "uppercase" }}>
                   Añadir máquina
                 </button>
               </div>
@@ -1756,7 +1756,7 @@ export default function InspectionApp() {
                     </>
                   );
                 })()}
-                <button onClick={() => setView("new")} style={{ background: "#f5b800", border: "none", borderRadius: 8, padding: "10px 20px", color: "#ffffff", fontFamily: "inherit", fontSize: 11, fontWeight: 700, letterSpacing: 1, cursor: "pointer", textTransform: "uppercase" }}>
+                <button onClick={() => setView("new")} style={{ background: "#f5b800", border: "none", borderRadius: 8, padding: "10px 20px", color: "#0f172a", fontFamily: "inherit", fontSize: 11, fontWeight: 700, letterSpacing: 1, cursor: "pointer", textTransform: "uppercase" }}>
                   + Nueva
                 </button>
               </div>
@@ -1829,7 +1829,7 @@ export default function InspectionApp() {
                                       {r.defectCount + r.failCount > 0 ? `⚠ ${r.defectCount + r.failCount} incidencias` : "✓ OK"}
                                     </span>
                                   </div>
-                                  <button onClick={() => downloadPDF(r)} style={{ background: "none", border: "1px solid #cdd6e1", borderRadius: 4, padding: "4px 10px", color: "#f5b800", fontFamily: "inherit", fontSize: 10, fontWeight: 700, cursor: "pointer", letterSpacing: 0.5 }}>⬇ PDF</button>
+                                  <button onClick={() => downloadPDF(r)} style={{ background: "none", border: "1px solid #cdd6e1", borderRadius: 4, padding: "4px 10px", color: "#b45309", fontFamily: "inherit", fontSize: 10, fontWeight: 700, cursor: "pointer", letterSpacing: 0.5 }}>⬇ PDF</button>
                                 </div>
                               ))}
                             </div>
@@ -1868,7 +1868,7 @@ export default function InspectionApp() {
                           {insp.defectCount === 0 && insp.failCount === 0 ? "✓ SIN INCIDENCIAS" : "⚠ CON INCIDENCIAS"}
                         </div>
                         <div style={{ display: "flex", gap: 6 }}>
-                          <button onClick={() => downloadPDF(insp)} style={{ background: "#f5b800", border: "none", borderRadius: 6, padding: "6px 12px", color: "#ffffff", fontFamily: "inherit", fontSize: 10, fontWeight: 700, letterSpacing: 1, cursor: "pointer", textTransform: "uppercase" }}>
+                          <button onClick={() => downloadPDF(insp)} style={{ background: "#f5b800", border: "none", borderRadius: 6, padding: "6px 12px", color: "#0f172a", fontFamily: "inherit", fontSize: 10, fontWeight: 700, letterSpacing: 1, cursor: "pointer", textTransform: "uppercase" }}>
                             ⬇ PDF
                           </button>
                           <button onClick={async () => {
